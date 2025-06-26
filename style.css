@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Header & Navigation */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: #000;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.hamburger {
+  width: 30px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: left 0.6s ease;
+  z-index: 1000;
+}
+
+.menu-overlay.active { left: 0; }
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.menu-links a {
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: color 0.4s;
+}
+
+.menu-links a:hover { color: #00eaff; }
+
+/* Hamburger Animation when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0, 234, 255, 0.1) 0%, transparent 60%);
+  animation: rotate 20s linear infinite;
+  z-index: 0;
+}
+
+.hero-content {
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.cta {
+  margin-top: 40px;
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid #00eaff;
+  color: #00eaff;
+  text-decoration: none;
+  transition: background 0.4s, color 0.4s;
+}
+
+.cta:hover {
+  background: #00eaff;
+  color: #000;
+}
+
+/* Services Section */
+.services {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+}
+
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #333;
+  padding: 30px;
+  font-weight: 600;
+  flex: 1 1 200px;
+  text-align: center;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  color: #00eaff;
+}
+
+/* Feedback Carousel */
+.feedback {
+  padding: 80px 20px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.feedback h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.carousel {
+  display: flex;
+  gap: 40px;
+  animation: scroll 25s linear infinite;
+}
+
+.feedback-card {
+  flex: 0 0 auto;
+  min-width: 250px;
+  background: #111;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* WhatsApp Button */
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  font-size: 2rem;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+  z-index: 1001;
+}
+
+/* Animations */
+@keyframes rotate {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+@keyframes scroll {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-50%);}
+}
+
+@keyframes bounce {
+  0%, 100% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+}
+
+/* Responsive Menu Links */
+@media (max-width: 768px) {
+  .menu-links a { font-size: 1.8rem; }
+  }
